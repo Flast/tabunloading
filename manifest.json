@@ -1,0 +1,14 @@
+{
+  "manifest_version" : 2,
+  "name" : "tabunloading",
+  "version" : "0.0",
+  "default_locale" : "en",
+
+  "description" : "Allow you to unload tab manually.",
+
+  "background" : {
+    "scripts" : ["tabunloading.js"]
+  },
+
+  "permissions" : ["menus", "activeTab"]
+}
