@@ -4,7 +4,7 @@
 
 function onCreated() {
   if (browser.runtime.lastError) {
-    console.log(`Error: ${browser.runtie.lastError}`);
+    console.log(`Error: ${browser.runtime.lastError}`);
   }
 }
 
