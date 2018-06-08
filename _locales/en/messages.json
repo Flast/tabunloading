@@ -2,5 +2,9 @@
   "unloadSingleTab" : {
     "message" : "Unload tab",
     "description" : "Unload single tab."
+  },
+  "unloadAllTabsInWindow" : {
+    "message" : "Unload all tabs",
+    "description" : "Unload all tabs in window except active."
   }
 }
