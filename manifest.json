@@ -1,7 +1,7 @@
 {
   "manifest_version" : 2,
   "name" : "tabunloading",
-  "version" : "0.0",
+  "version" : "0.1",
   "default_locale" : "en",
 
   "description" : "Allow you to unload tab manually.",
