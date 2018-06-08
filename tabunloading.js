@@ -21,7 +21,9 @@ browser.menus.create({
 
 function unloadSingleTab(tab) {
   // FIXME: Unable to discard current (active) tab.
-  browser.tabs.discard(tab.id).then(null, onError);
+  browser.tabs.discard(tab.id).then(() => {
+    console.log(`unloaded: ${tab.title}`);
+  }, onError);
 }
 
 browser.menus.onClicked.addListener((info, tab) => {

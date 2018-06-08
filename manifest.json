@@ -10,5 +10,5 @@
     "scripts" : ["tabunloading.js"]
   },
 
-  "permissions" : ["menus"]
+  "permissions" : ["menus", "tabs"]
 }
