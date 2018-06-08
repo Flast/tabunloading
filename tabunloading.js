@@ -12,14 +12,7 @@ function onError(error) {
   console.log(`Error: ${error}`);
 }
 
-browser.menus.create({
-  id: "unload-me",
-  title: browser.i18n.getMessage("unloadSingleTab"),
-  // TODO: Recognize tree-style tab addon.
-  contexts: ["tab"]
-}, onCreated);
-
-function unloadSingleTab(tab) {
+function unloadSingleTab(menuitem, tab) {
   if (tab.active) {
     console.log("Unable to unload active tab");
     return;
@@ -30,10 +23,9 @@ function unloadSingleTab(tab) {
   }, onError);
 }
 
-browser.menus.onClicked.addListener((info, tab) => {
-  switch (info.menuItemId) {
-    case "unload-me":
-      unloadSingleTab(tab);
-      break;
-  }
-});
+// TODO: Recognize tree-style tab addon.
+browser.menus.create({
+  title: browser.i18n.getMessage("unloadSingleTab"),
+  contexts: ["tab"],
+  onclick: unloadSingleTab
+}, onCreated);
