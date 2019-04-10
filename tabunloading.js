@@ -1,4 +1,4 @@
-// Copyright 2018 Kohei Takahshi
+// Copyright 2018,2019 Kohei Takahshi
 //
 // This software is released under the MIT License, see LICENSE.txt.
 
