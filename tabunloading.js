@@ -37,7 +37,6 @@ function unloadAllTabsInWindow(menuitem, tab) {
   }, onError);
 }
 
-// TODO: Recognize tree-style tab addon.
 browser.menus.create({
   title: browser.i18n.getMessage("unloadSingleTab"),
   contexts: ["tab"],
