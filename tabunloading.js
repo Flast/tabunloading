@@ -12,9 +12,11 @@ function onError(error) {
   console.log(`Error: ${error}`);
 }
 
-function discard(tab) {
-  browser.tabs.discard(tab.id).then(() => {
-    console.log(`unloaded: ${tab.title}`);
+function discard(tabs) {
+  browser.tabs.discard(tabs.map(t => t.id)).then(() => {
+    for (tab of tabs) {
+      console.log(`unloaded: ${tab.title}`);
+    }
   }, onError);
 }
 
@@ -23,17 +25,16 @@ function unloadSingleTab(menuitem, tab) {
     console.log("Unable to unload active tab");
     return;
   }
+  if (tab.discarded) {
+    return;
+  }
 
-  discard(tab);
+  discard([tab]);
 }
 
 function unloadAllTabsInWindow(menuitem, tab) {
   browser.windows.get(tab.windowId, {populate: true}).then((windowInfo) => {
-    for (tab of windowInfo.tabs) {
-      if (!tab.active) {
-        discard(tab);
-      }
-    }
+    discard(windowInfo.tabs.filter(t => !t.discarded && !t.active));
   }, onError);
 }
 
