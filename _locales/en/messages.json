@@ -12,5 +12,9 @@
   "unloadAllTabsInWindow" : {
     "message" : "Unload all tabs",
     "description" : "Unload all tabs in window except active."
+  },
+  "unloadTreeTST" : {
+    "message": "Unload this tree",
+    "description" : "Unload selected tab and its children."
   }
 }

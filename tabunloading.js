@@ -84,6 +84,22 @@ function unloadAllTabsInWindow(menuitem, tab) {
   }, onError);
 }
 
+async function unloadTreeTST(menuitem, tab) {
+  tree = await TST_sendMessage.then((send) => {
+    return send({type: 'get-tree', tab: tab.id});
+  });
+
+  let i = 0;
+  let tabs = [tree];
+  // flatten tab tree
+  while (i < tabs.length) {
+    tabs = tabs.concat(tabs[i].children);
+    i += 1;
+  }
+
+  discard(tabs.filter(t => !t.discarded && !t.active));
+}
+
 browser.menus.create({
   title: browser.i18n.getMessage("unloadSingleTab"),
   contexts: ["tab"],
@@ -94,6 +110,13 @@ browser.menus.create({
   title: browser.i18n.getMessage("unloadAllTabsInWindow"),
   contexts: ["tab"],
   onclick: unloadAllTabsInWindow
+}, onCreated);
+
+const menu_unloadTreeTST = browser.menus.create({
+  title: browser.i18n.getMessage("unloadTreeTST"),
+  contexts: ["tab"],
+  onclick: unloadTreeTST,
+  visible: false
 }, onCreated);
 
 TST_sendMessage.then(onTSTReady); // This line should be last
