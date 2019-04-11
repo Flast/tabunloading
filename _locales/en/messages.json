@@ -1,4 +1,10 @@
 {
+  "extensionName" : {
+    "message": "tabunloading"
+  },
+  "extensionDescription" : {
+    "message" : "Allow you to unload tab manually."
+  },
   "unloadSingleTab" : {
     "message" : "Unload tab",
     "description" : "Unload single tab."

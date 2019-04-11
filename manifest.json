@@ -1,10 +1,10 @@
 {
   "manifest_version" : 2,
-  "name" : "tabunloading",
+  "name" : "__MSG_extensionName__",
   "version" : "0.1",
   "default_locale" : "en",
 
-  "description" : "Allow you to unload tab manually.",
+  "description" : "__MSG_extensionDescription__",
 
   "background" : {
     "scripts" : ["tabunloading.js"]
